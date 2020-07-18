@@ -1,4 +1,5 @@
 const path = require("path");
+const htmlWebpackPlugin = require("html-webpack-plugin");
 
 const outputPath = path.resolve(__dirname, "dist");
 
@@ -10,6 +11,11 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: "babel-loader",
+      },
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader"], // 後ろから順に読み込む（css-loaderはcssをJSに変換する。style-loaderはstyleタグに変換して適用する）
@@ -30,9 +36,19 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.html$/,
+        loader: "html-loader",
+      },
     ],
   },
   devServer: {
     contentBase: outputPath,
   },
+  plugins: [
+    new htmlWebpackPlugin({
+      template: "./src/index.html",
+      filename: "./index.html",
+    }),
+  ],
 };
