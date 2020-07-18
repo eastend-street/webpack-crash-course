@@ -5,6 +5,7 @@ import _ from "lodash";
 // import Lion from "./utils";
 // import Tiger from "./utils"; // defaultでexportしたものはimportする際は自由に名前を付けられる
 import "./style.css";
+import "./style.scss";
 import logo from "./logo.png";
 
 // console.log(squared(4), NAME);
