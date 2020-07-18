@@ -5,6 +5,7 @@ import _ from "lodash";
 // import Lion from "./utils";
 // import Tiger from "./utils"; // defaultでexportしたものはimportする際は自由に名前を付けられる
 import "./style.css";
+import logo from "./logo.png";
 
 // console.log(squared(4), NAME);
 // console.log(utils.squared(4), utils.NAME);
@@ -20,3 +21,7 @@ function component() {
 
 document.body.appendChild(component());
 document.body.classList.add("haikei");
+
+const image = new Image();
+image.src = logo;
+document.body.appendChild(image);
