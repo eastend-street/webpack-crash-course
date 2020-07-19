@@ -15,6 +15,12 @@ module.exports = {
   module: {
     rules: [
       {
+        enforce: "pre", //enforce:preを持たないloaderよりも早く実行される。この場合は最も早く実行される。
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: "eslint-loader",
+      },
+      {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: "babel-loader",
